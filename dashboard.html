@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    nav {
+      background: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #00e5ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .dashboard {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+    }
+
+    .dashboard h1 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 1.5rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 2rem;
+      color: #00e5ff;
+      font-weight: bold;
+    }
+
+    .stat p {
+      margin-top: 0.4rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .activity {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+
+    .activity h2 {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .activity ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .activity li {
+      font-size: 0.9rem;
+      color: #888;
+      border-left: 2px solid #00e5ff;
+      padding-left: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="assets.html">Assets</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <div class="stats">
+      <div class="stat"><span>128</span>
+        <p>Total Assets</p>
+      </div>
+      <div class="stat"><span>34</span>
+        <p>Active Users</p>
+      </div>
+      <div class="stat"><span>7</span>
+        <p>Pending Tasks</p>
+      </div>
+    </div>
+    <div class="activity">
+      <h2>Recent Activity</h2>
+      <ul>
+        <li>User uploaded <strong>exploit-kit.zip</strong> — 2 mins ago</li>
+        <li>New script added to /scripts — 15 mins ago</li>
+        <li>System scan completed — 1 hour ago</li>
+        <li>Config file updated — 3 hours ago</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

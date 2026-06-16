@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assets</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00e5ff;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #888;
+    }
+
+    .grid {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    .card:hover {
+      border-color: #00e5ff;
+      color: #fff;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #00e5ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="assets.html">Assets</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+  <div class="hero">
+    <h1>Assets</h1>
+    <p>Browse available files and resources.</p>
+    <div class="grid">
+      <div class="card">📁 Scripts</div>
+      <div class="card">🖼️ Images</div>
+      <div class="card">📄 Docs</div>
+      <div class="card">🔧 Tools</div>
+      <div class="card">📦 Packages</div>
+      <div class="card">🗃️ Archives</div>
+    </div>
+  </div>
+</body>
+
+</html>

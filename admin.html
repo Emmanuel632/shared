@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500 - Internal Server Error</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing:
+        border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .error h1 {
+      font-size: 6rem;
+      color: #ff1744;
+      letter-spacing: 4px;
+    }
+
+    .error h2 {
+      font-size: 1.5rem;
+      color: #e0e0e0;
+      margin-top: 0.5rem;
+    }
+
+    .error p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #888;
+    }
+
+    .error a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 2rem;
+      background: #ff1744;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .error a:hover {
+      background: #c4001d;
+    }
+
+    .trace {
+      margin-top: 2rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 1rem;
+      border-radius: 6px;
+      text-align: left;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #ff6e6e;
+      max-width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error">
+    <h1>500</h1>
+    <h2>Internal Server Error</h2>
+    <p>Something went wrong on our end. Please try again later.</p>
+    <div class="trace">
+      Error: Unhandled exception in /admin<br>
+      at Server.handleRequest (server.js:142)<br>
+      at process.nextTick (internal/process:112)<br>
+      caused by: NullReferenceException — auth context missing
+    </div>
+    <a href="index.html">Go Home</a>
+  </div>
+</body>
+
+</html>
