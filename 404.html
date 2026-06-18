@@ -42,10 +42,7 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const page = params.get('page');
-    const el = document.getElementById('pageName');
-    el.textContent = page ? '"' + page + '"' : 'you requested';
+    document.getElementById('pageName').textContent = 'you requested';
   </script>
 </body>
 </html>
