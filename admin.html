@@ -1,90 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>500 - Internal Server Error</title>
+  <title>Admin Panel</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing:
-        border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0f0f0f;
       color: #e0e0e0;
+    }
+    nav {
+      background: #1a1a1a;
+      padding: 1rem 2rem;
       display: flex;
+      gap: 2rem;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
     }
-
-    .error h1 {
-      font-size: 6rem;
-      color: #ff1744;
-      letter-spacing: 4px;
+    nav a { color: #00e5ff; text-decoration: none; font-size: 0.95rem; }
+    nav a:hover { color: #fff; }
+    .admin { max-width: 900px; margin: 4rem auto; padding: 2rem; }
+    .admin h1 { font-size: 2rem; color: #00e5ff; margin-bottom: 0.4rem; }
+    .admin .subtitle { color: #555; font-size: 0.9rem; margin-bottom: 2rem; }
+    .section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #555;
+      margin-bottom: 0.8rem;
     }
-
-    .error h2 {
-      font-size: 1.5rem;
-      color: #e0e0e0;
-      margin-top: 0.5rem;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
-
-    .error p {
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: #888;
-    }
-
-    .error a {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.7rem 2rem;
-      background: #ff1744;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .error a:hover {
-      background: #c4001d;
-    }
-
-    .trace {
-      margin-top: 2rem;
+    .card {
       background: #1a1a1a;
       border: 1px solid #2a2a2a;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 6px;
-      text-align: left;
-      font-family: monospace;
-      font-size: 0.8rem;
-      color: #ff6e6e;
-      max-width: 500px;
     }
+    .card .label { font-size: 0.85rem; color: #888; }
+    .card .value { font-size: 1.8rem; color: #00e5ff; font-weight: bold; margin-top: 0.3rem; }
+    .card .status { font-size: 0.8rem; margin-top: 0.4rem; }
+    .status.ok { color: #00e676; }
+    .status.warn { color: #ffab40; }
+    .table-wrap {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th {
+      background: #141414;
+      color: #555;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    td { padding: 0.8rem 1rem; border-top: 1px solid #222; color: #ccc; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .badge.active { background: #003320; color: #00e676; }
+    .badge.inactive { background: #2a1a00; color: #ffab40; }
+    .badge.banned { background: #2a0000; color: #ff5252; }
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .btn-primary { background: #00e5ff; color: #0f0f0f; }
+    .btn-primary:hover { background: #00b8d4; }
+    .btn-danger { background: #1a0000; border: 1px solid #ff1744; color: #ff1744; }
+    .btn-danger:hover { background: #2a0000; }
+    .btn-ghost { background: #1a1a1a; border: 1px solid #333; color: #aaa; }
+    .btn-ghost:hover { border-color: #00e5ff; color: #00e5ff; }
   </style>
 </head>
-
 <body>
-  <div class="error">
-    <h1>500</h1>
-    <h2>Internal Server Error</h2>
-    <p>Something went wrong on our end. Please try again later.</p>
-    <div class="trace">
-      Error: Unhandled exception in /admin<br>
-      at Server.handleRequest (server.js:142)<br>
-      at process.nextTick (internal/process:112)<br>
-      caused by: NullReferenceException — auth context missing
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="assets.html">Assets</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <div class="admin">
+    <h1>Admin Panel</h1>
+    <p class="subtitle">Manage users, system settings, and access controls.</p>
+
+    <p class="section-title">System Overview</p>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Total Users</div>
+        <div class="value">48</div>
+        <div class="status ok">↑ 3 this week</div>
+      </div>
+      <div class="card">
+        <div class="label">Active Sessions</div>
+        <div class="value">12</div>
+        <div class="status ok">All healthy</div>
+      </div>
+      <div class="card">
+        <div class="label">Failed Logins (24h)</div>
+        <div class="value">7</div>
+        <div class="status warn">⚠ Review flagged IPs</div>
+      </div>
     </div>
-    <a href="index.html">Go Home</a>
+
+    <p class="section-title">Quick Actions</p>
+    <div class="actions">
+      <button class="btn btn-primary">Add User</button>
+      <button class="btn btn-ghost">Export Logs</button>
+      <button class="btn btn-ghost">Backup DB</button>
+      <button class="btn btn-danger">Lock System</button>
+    </div>
+
+    <p class="section-title">User Management</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th>Last Login</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>root_admin</td>
+            <td>Superadmin</td>
+            <td>Just now</td>
+            <td><span class="badge active">Active</span></td>
+          </tr>
+          <tr>
+            <td>sec_operator</td>
+            <td>Operator</td>
+            <td>2 hours ago</td>
+            <td><span class="badge active">Active</span></td>
+          </tr>
+          <tr>
+            <td>guest_user</td>
+            <td>Viewer</td>
+            <td>3 days ago</td>
+            <td><span class="badge inactive">Inactive</span></td>
+          </tr>
+          <tr>
+            <td>unknown_node</td>
+            <td>—</td>
+            <td>7 days ago</td>
+            <td><span class="badge banned">Banned</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
-
 </html>
